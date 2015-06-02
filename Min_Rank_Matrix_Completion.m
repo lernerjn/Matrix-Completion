@@ -38,6 +38,11 @@ function [ X, rankX, M, Q ] = Min_Rank_Matrix_Completion(n1, n2, m,  r , epsilon
 %       r:  the rank of Q
 %       epsilon: the tolerance for counting singular values of X
 %
+% Optional Alternative Input (two inputs exactly):
+%       M: the matrix to be completed, all numbers are used and all NaN
+%       entries are ignored
+%       epsilon: the tolerance for counting singular values of X
+%
 % Outputs:
 %       X: the minimizer of this convex relaxation of the minimum rank 
 %           matrix completion problem
@@ -47,18 +52,24 @@ function [ X, rankX, M, Q ] = Min_Rank_Matrix_Completion(n1, n2, m,  r , epsilon
 %       Q: the matrix we are trying to recover
 
 %% The setup
+
+if ~(nargin() == 2)
 % Create an n1 x n2 matrix of rank r
-Q = randn(n1,r)*randn(r,n2);
+    Q = randn(n1,r)*randn(r,n2);
 
-% Q = [ 1 1 1; 2 2 2; 3 3 3];
+    % Q = [ 1 1 1; 2 2 2; 3 3 3];
 
-% Randomly (from a uniform distribution) pick m elements in Q to place in M
-list1=randperm(numel(Q));
-list1=list1(1:m);
-M = nan(n1,n2);
-M(list1) = Q(list1);
+    % Randomly (from a uniform distribution) pick m elements in Q to place in M
+    list1=randperm(numel(Q));
+    list1=list1(1:m);
+    M = nan(n1,n2);
+    M(list1) = Q(list1);
 
-% M = [ nan nan 1; 2 2 nan ; 3 3 3];
+    % M = [ nan nan 1; 2 2 nan ; 3 3 3];
+else
+    M = n1;
+    epsilon = n2;
+end
 
 
 %% The Convex Optimization
