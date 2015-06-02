@@ -54,10 +54,8 @@ function [ X, rankX, M, Q ] = Min_Rank_Matrix_Completion(n1, n2, m,  r , epsilon
 %% The setup
 
 if ~(nargin() == 2)
-% Create an n1 x n2 matrix of rank r
+    % Create an n1 x n2 matrix of rank r
     Q = randn(n1,r)*randn(r,n2);
-
-    % Q = [ 1 1 1; 2 2 2; 3 3 3];
 
     % Randomly (from a uniform distribution) pick m elements in Q to place in M
     list1=randperm(numel(Q));
@@ -65,8 +63,7 @@ if ~(nargin() == 2)
     M = nan(n1,n2);
     M(list1) = Q(list1);
 
-    % M = [ nan nan 1; 2 2 nan ; 3 3 3];
-else
+]else
     M = n1;
     epsilon = n2;
 end
