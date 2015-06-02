@@ -1,9 +1,10 @@
-# Image-Processing
-For an example of smoothing using heat equation (and experimenting on my dog), 
-run Heat_Equation_Smoothing_Example.m 
+# Minimum Rank Matrix Completion
+For an example of minimum rank matrix completion, based on a random n x n rank r matrix, run
 
-For examples of edge detection using geodesic active contours, run  
+	[X, rankX, M, Q] = Min_Rank_Matrix_Completion( n, n, 3*n^2/4, 1e-6)
 
-	[I] = EdgeDet( k , 0, ‘’, 0, 0) for k = 1 through 12
+To run this code on an existing matrix, M, where the non-sampled entries are NaN, run
 
-Background on both codes is provided in the Analysis folder
+	[X, rankX, M] = Min_Rank_Matrix_Completion( M, 1e-6)
+
+Background on this is provided in the Analysis folder.
