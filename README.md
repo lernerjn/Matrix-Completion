@@ -1,5 +1,5 @@
 # Minimum Rank Matrix Completion
-For an example of minimum rank matrix completion, based on a random n x n rank r matrix, run
+For an example of minimum rank matrix completion, based on a random n x n rank r matrix (where 3/4 of the entries are sampled), run
 
 	[X, rankX, M, Q] = Min_Rank_Matrix_Completion( n, n, 3*n^2/4, 1e-6)
 
