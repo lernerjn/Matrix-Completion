@@ -38,7 +38,7 @@ function [ X, rankX, M, Q ] = Min_Rank_Matrix_Completion(n1, n2, m,  r , epsilon
 %       r:  the rank of Q
 %       epsilon: the tolerance for counting singular values of X
 %
-% Optional Alternative Input (two inputs exactly):
+% Optional Alternative Input (exactly two inputs, in this order):
 %       M: the matrix to be completed, all numbers are used and all NaN
 %       entries are ignored
 %       epsilon: the tolerance for counting singular values of X
